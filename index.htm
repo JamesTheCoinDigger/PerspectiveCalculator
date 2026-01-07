@@ -411,7 +411,9 @@ const foreshortLineLeftTop = $("foreshortLineLeftTop");
 const leftVerticalEdge = $("leftVerticalEdge");
 
 
-function updateDiagram() {
+function updateDiagram(event) {
+  const skipDiagram = event && (event.target.id === "actualLeft" || event.target.id === "actualRight");
+  
   const w = parseFloat(widthInput.value) || 0;
   const l = parseFloat(lengthInput.value) || 0;
   const h = parseFloat(heightInput.value) || 0;
@@ -453,6 +455,9 @@ function updateDiagram() {
   const fovRad = 2 * Math.atan(Math.max(pw, ph) / (2 * spDist));
   fovValBox.textContent = (fovRad * 180 / Math.PI).toFixed(2);
 
+  if (skipDiagram) return; // Skip drawing the SVG part
+  
+  
   // --- Vanishing point distances ---
   const vpLeftDist = parseFloat(vpLeftBox.textContent) || 0;
   const vpRightDist = parseFloat(vpRightBox.textContent) || 0;
@@ -481,6 +486,7 @@ function updateDiagram() {
   const xOrigin = ( - (vpLeftDist + vpRightDist)/2 + vpLeftDist ) * scale;
   const yOrigin = 0;
 
+    
   // --- Plan rectangle ---
   planRect.setAttribute("x", xOrigin);
   planRect.setAttribute("y", yOrigin - rl);
