@@ -12,7 +12,7 @@
   input { padding:6px; background:#013220; color:#fff; border:1px solid #444; font-size:16px; font-weight:bold; width:150px; }
   .flexRow { display:flex; gap:28px; flex-wrap:nowrap; margin-top:12px; align-items:center; }
   svg { width:100%; height:1000px; border-radius:6px; }
-  text {  font-size:28px; font-family:monospace; }
+  text {  font-size:36px; font-family:monospace; }
   .fovContainer { display:flex; gap:8px; align-items:center; margin-top:4px; }
   .fovContainer span { font-family:monospace; }
 </style>
@@ -26,26 +26,26 @@
   <h1 style="font-size:22px; border-bottom:1px solid #333; padding-bottom:6px; margin-bottom:18px;">2-Point Perspective Calculator</h1>
   
   <!-- Building Dimensions -->
-  <div style="margin-bottom:32px;">
+  <div style="margin-bottom:24px;">
     <h2 style="font-size:18px; color:#379DC8; border-bottom:1px solid #333; padding-bottom:5px; margin-bottom:12px;">Building Dimensions (meters)</h2>
     <div class="flexRow">
-      <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Width</label><input id="widthVal" type="number" step="0.1" value="8.0"></div>
-      <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Length</label><input id="lengthVal" type="number" step="0.1" value="5.0"></div>
-      <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Height</label><input id="heightVal" type="number" step="0.1" value="7.5"></div>
+      <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Width</label><input id="widthVal" type="number" step="1" value="8.0"></div>
+      <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Length</label><input id="lengthVal" type="number" step="1" value="5.0"></div>
+      <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Height</label><input id="heightVal" type="number" step="1" value="7.5"></div>
     </div>
   </div>
 
   <!-- View Parameters -->
-  <div style="margin-bottom:32px;">
+  <div style="margin-bottom:24px;">
   <h2 style="font-size:18px; color:#379DC8; border-bottom:1px solid #333; padding-bottom:5px; margin-bottom:12px;">View Parameters</h2>
   <div style="display:flex; gap:28px; flex-wrap:wrap; margin-top:12px;">
-    <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Rotation (deg)</label><input id="rotationVal" type="number" step="1.0" value="30" style="width:150px; padding:6px; background:#013220; color:#fff; border:1px solid #444; font-size:16px; font-weight:bold;"></div>
+    <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Rotation (deg)</label><input id="rotationVal" type="number" min="15" max="75" step="1.0" value="30" style="width:150px; padding:6px; background:#013220; color:#fff; border:1px solid #444; font-size:16px; font-weight:bold;"></div>
     <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">SP Offset</label><input id="offsetVal" type="number" step="0.1" value="0" style="width:150px; padding:6px; background:#013220; color:#fff; border:1px solid #444; font-size:16px; font-weight:bold;"></div>
   </div>
 </div>
 
   <!-- Picture Dimensions -->
-  <div style="margin-bottom:32px;">
+  <div style="margin-bottom:24px;">
   <h2 style="font-size:18px; color:#379DC8; border-bottom:1px solid #333; padding-bottom:5px; margin-bottom:12px;">Picture Dimensions</h2>
   <table style="font-family:monospace; border-collapse:collapse; margin-top:5px; width:100%;">
     <tr>
@@ -64,7 +64,7 @@
 </div>
 
   <!-- Station Point -->
-  <div style="margin-bottom:32px;">
+  <div style="margin-bottom:24px;">
   <h2 style="font-size:18px; color:#379DC8; border-bottom:1px solid #333; padding-bottom:5px; margin-bottom:12px;">Station Point</h2>
   <div style="display:flex; flex-direction:column; gap:8px;">
     <div style="display:flex; align-items:center; gap:20px;">
@@ -90,7 +90,7 @@
 
 
   <!-- Vanishing Points -->
-  <div style="margin-bottom:32px;">
+  <div style="margin-bottom:24px;">
   <h2 style="font-size:18px; color:#379DC8; border-bottom:1px solid #333; padding-bottom:5px; margin-bottom:12px;">Vanishing Points (Horizontal Distance from CAV)</h2>
   <div style="display:flex; flex-wrap:wrap; margin-top:16px;"> <!-- vp-row -->
     <div style="display:flex; align-items:center; gap:26px; padding-top:6px; padding-bottom:6px;"> <!-- vpl-field -->
@@ -105,7 +105,7 @@
 </div>
 
   <!-- Distance Foreshortening -->
-  <div style="margin-bottom:32px;">
+  <div style="margin-bottom:24px;">
   <h2 style="font-size:18px; color:#379DC8; border-bottom:1px solid #333; padding-bottom:5px; margin-bottom:12px;">Distance Foreshortening</h2>
   <table style="font-family: monospace; border-collapse: collapse; margin-top:5px; width:100%;">
     <tr>
@@ -131,7 +131,7 @@
         id="actualLeft"
         type="number"
         step="0.1"
-        value="5.00"
+        value="2.50"
         style="
           width:130px;
           height:34px;
@@ -156,7 +156,7 @@
         id="actualRight"
         type="number"
         step="0.1"
-        value="8.00"
+        value="4.00"
         style="
           width:130px;
           height:34px;
@@ -227,7 +227,7 @@
   <!-- DIAGRAM PANEL -->
   <div id="diagramPanel">
     <h2 style="font-size:18px; color:#379DC8;  border-bottom:1px solid #333; padding-bottom:5px; margin-top:22px;">Diagram</h2>
-    <svg id="planSvg" viewBox="-600 -600 1200 2000" preserveAspectRatio="xMidYMid meet">
+    <svg id="planSvg" viewBox="-900 -300 1800 1800" preserveAspectRatio="xMidYMid meet">
       <!-- <rect x="-600" y="-600" width="100%" height="100%" fill="black"></rect> -->
 	  <defs>
 		  <marker id="dimArrow"
@@ -249,37 +249,48 @@
 			  <!-- 45° tick line, top-left → bottom-right -->
 			  <path d="M0,10 L10,0" stroke="#ffffff" stroke-width="1.5"/>
 		  </marker>
-
 		</defs>
+	  
+		<!-- actual markers -->
+		<circle id="actualLeftMarker" r="8" fill="#FFD700" stroke="#000" stroke-width="1"/>
+		<circle id="actualRightMarker" r="8" fill="#FFD700" stroke="#000" stroke-width="1"/>
+	  
+		<!-- Foreshortened distance verticals -->
+		<line id="fsLeftVertical"  stroke="#888888" stroke-width="1.5" stroke-dasharray="6 6"></line>
+		<line id="fsRightVertical" stroke="#888888" stroke-width="1.5" stroke-dasharray="6 6"></line>
+	  
 	  
 	  <!-- Building -->
       <rect id="planRect" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-width="3"></rect>
 
       <!-- CAV & SP -->
-      <line id="cavLine" stroke="#888888" stroke-width="2"></line>
-      <circle id="spMarker" r="4" fill="#ADFF2F"></circle>
+      <line id="cavLine" stroke="#888888" stroke-width="2" stroke-dasharray="4,4"></line>
+      <circle id="spMarker" r="6" fill="#FFD700"></circle>
       <text id="spLabel" fill="#ADFF2F">SP</text>
 
       <!-- Picture Plane -->
-      <line id="ppLine" stroke="#00CED1" stroke-width="2"></line>
+      <line id="ppLine" stroke="#426880" stroke-width="2"></line>
       <text id="ppLabel" fill="#ADFF2F">Picture Plane (PP)</text>
 
       <!-- Rays -->
       <line id="rayA" stroke="#888888" stroke-width="1" stroke-dasharray="4,4"></line>
       <line id="rayB" stroke="#888888" stroke-width="1" stroke-dasharray="4,4"></line>
+	  <line id="rayC" stroke="#888888" stroke-width="1" stroke-dasharray="4,4"></line>
+	  <line id="rayD" stroke="#888888" stroke-width="1" stroke-dasharray="4,4"></line>
+
 	  
 	  <!-- Height Reference (2.0 units below SP) -->
 	  <line id="heightRefLine" stroke="#ffffff" stroke-width="2"></line>
 	  
 	  <!-- Horizon line -->
-	  <line id="horizonLine" stroke="#00CED1" stroke-width="2"></line>
+	  <line id="horizonLine" stroke="#426880" stroke-width="2"></line>
 	  <text id="hlLabel" fill="#ADFF2F" font-family="Arial, Helvetica, sans-serif" font-size="14px" text-anchor="start">HL</text>
 	  
 	  <!-- VPL & VPR markers -->
-	  <circle id="vpLeftMarker" r="4" fill="#FFD700"></circle>
+	  <circle id="vpLeftMarker" r="6" fill="#FFD700"></circle>
 	  <text id="vpLeftLabel" fill="#ADFF2F" font-family="Arial, Helvetica, sans-serif" font-size="14px" text-anchor="middle">VPL</text>
 
-	  <circle id="vpRightMarker" r="4" fill="#FFD700"></circle>
+	  <circle id="vpRightMarker" r="6" fill="#FFD700"></circle>
 	  <text id="vpRightLabel" fill="#ADFF2F" font-family="Arial, Helvetica, sans-serif" font-size="14px" text-anchor="middle">VPR</text>
 	  
 	  <!-- Box Perspective -->
@@ -291,16 +302,22 @@
 	  <line id="foreshortLineRightTop" stroke="#ffffff" stroke-width="4"></line>
 	  <line id="rightVerticalEdge" stroke="#ffffff" stroke-width="4"></line>
 	  
-	  <line id="leftVPLineTop" stroke="#888888" stroke-width="1"></line>
-	  <line id="leftVPLineBottom" stroke="#888888" stroke-width="1"></line>
-	  <line id="rightVPLineTop" stroke="#888888" stroke-width="1"></line>
-	  <line id="rightVPLineBottom" stroke="#888888" stroke-width="1"></line>
+	  <line id="leftVPLineTop" stroke="#888888" stroke-width="2" stroke-dasharray="4,4"></line>
+	  <line id="leftVPLineBottom" stroke="#888888" stroke-width="2" stroke-dasharray="4,4"></line>
+	  <line id="rightVPLineTop" stroke="#888888" stroke-width="2" stroke-dasharray="4,4"></line>
+	  <line id="rightVPLineBottom" stroke="#888888" stroke-width="2" stroke-dasharray="4,4"></line>
  
 	  <!-- Vertical gray lines from vertical edges to PP -->
 	  <line id="leftGuideLine" stroke="#888888" stroke-width="1" stroke-dasharray="4,4"></line>
 	  <line id="rightGuideLine" stroke="#888888" stroke-width="1" stroke-dasharray="4,4"></line>
-
-	  <text id="scaleLabel" x="0" y="-580" fill="#888888" font-size="16" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+	  <line id="leftFSGuideLine" stroke="#888888" stroke-width="1" stroke-dasharray="4,4"></line>
+	  <line id="rightFSGuideLine" stroke="#888888" stroke-width="1" stroke-dasharray="4,4"></line>
+	  
+	  <!-- Shading -->
+	  <polygon id="leftFaceFill" fill="rgba(255,255,255,0.1)" stroke="none"></polygon>
+	  <polygon id="rightFaceFill" fill="rgba(255,255,255,0.3)" stroke="none"></polygon>
+	  
+	  <text id="scaleLabel" x="0" y="-900" fill="#404040" font-size="16" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
 	  Scale: 1.0
 	  </text>
 
@@ -373,6 +390,86 @@ function drawDim(svg, x1, y1, x2, y2, ext, offset, text) {
   return g;
 }
 
+function drawLinearDim(svg, x1, y1, x2, y2, orientation, ext = 20, label = "") {
+  const ns = "http://www.w3.org/2000/svg";
+
+  const g = document.createElementNS(ns, "g");
+  g.setAttribute("class", "dimension");
+
+  let dx1, dy1, dx2, dy2;
+  let tx, ty;
+
+  if (orientation === "horizontal") {
+    const dimY = Math.max(y1, y2) + ext;
+
+    // projection
+    dx1 = x1; dy1 = dimY;
+    dx2 = x2; dy2 = dimY;
+
+    // extension lines
+    extLine(x1, y1, dx1, dy1);
+    extLine(x2, y2, dx2, dy2);
+
+    tx = (dx1 + dx2) / 2;
+    ty = dimY - 6;
+  }
+
+  if (orientation === "vertical") {
+    const dimX = Math.max(x1, x2) + ext;
+
+    // projection
+    dx1 = dimX; dy1 = y1;
+    dx2 = dimX; dy2 = y2;
+
+    // extension lines
+    extLine(x1, y1, dx1, dy1);
+    extLine(x2, y2, dx2, dy2);
+
+    tx = dimX + 6;
+    ty = (dy1 + dy2) / 2;
+  }
+
+  // dimension line
+  const dimLine = document.createElementNS(ns, "line");
+  dimLine.setAttribute("x1", dx1);
+  dimLine.setAttribute("y1", dy1);
+  dimLine.setAttribute("x2", dx2);
+  dimLine.setAttribute("y2", dy2);
+  dimLine.setAttribute("stroke", "#ffffff");
+  dimLine.setAttribute("stroke-width", 1.5);
+  dimLine.setAttribute("marker-start", "url(#dimTick)");
+  dimLine.setAttribute("marker-end", "url(#dimTick)");
+  g.appendChild(dimLine);
+
+  // text
+  if (label) {
+    const t = document.createElementNS(ns, "text");
+    t.setAttribute("x", tx);
+    t.setAttribute("y", ty);
+    t.setAttribute("fill", "#7CFF00");
+    t.setAttribute("font-size", "12");
+    t.setAttribute("text-anchor", "middle");
+    t.textContent = label;
+    g.appendChild(t);
+  }
+
+  svg.appendChild(g);
+
+  // ---- helpers ----
+  function extLine(xa, ya, xb, yb) {
+    const l = document.createElementNS(ns, "line");
+    l.setAttribute("x1", xa);
+    l.setAttribute("y1", ya);
+    l.setAttribute("x2", xb);
+    l.setAttribute("y2", yb);
+    l.setAttribute("stroke", "#888");
+    l.setAttribute("stroke-width", 1);
+    l.setAttribute("stroke-dasharray", "4 4");
+    g.appendChild(l);
+  }
+}
+
+
 
 const deg = d => d * Math.PI / 180;
 const widthInput = $("widthVal");
@@ -411,9 +508,7 @@ const foreshortLineLeftTop = $("foreshortLineLeftTop");
 const leftVerticalEdge = $("leftVerticalEdge");
 
 
-function updateDiagram(event) {
-  const skipDiagram = event && (event.target.id === "actualLeft" || event.target.id === "actualRight");
-  
+function updateDiagram() {
   const w = parseFloat(widthInput.value) || 0;
   const l = parseFloat(lengthInput.value) || 0;
   const h = parseFloat(heightInput.value) || 0;
@@ -455,17 +550,14 @@ function updateDiagram(event) {
   const fovRad = 2 * Math.atan(Math.max(pw, ph) / (2 * spDist));
   fovValBox.textContent = (fovRad * 180 / Math.PI).toFixed(2);
 
-  if (skipDiagram) return; // Skip drawing the SVG part
-  
-  
   // --- Vanishing point distances ---
   const vpLeftDist = parseFloat(vpLeftBox.textContent) || 0;
   const vpRightDist = parseFloat(vpRightBox.textContent) || 0;
   
-    // --- Scaling ---
+  // --- Scaling ---
   <!-- const scale = Math.max(1, Math.min(50, 0.5 * 600 / Math.max(w, l, 1))); --old scaling-->
   // --- Compute scale so VP sum fits inside SVG ---
-	const canvasWidth = 1200; // same as your SVG viewBox width
+	const canvasWidth = 1800; // same as your SVG viewBox width
 	const margin = 60;         // margin from edges
 	const vpSum = vpLeftDist + vpRightDist;
 
@@ -558,20 +650,14 @@ function updateDiagram(event) {
     y: yOrigin + p.x * sin + p.y * cos
   }));
 
-  // --- Rays from SP ---
-  rayA.setAttribute("x1", xOrigin);
-  rayA.setAttribute("y1", cavEndY);
-  rayA.setAttribute("x2", corners[2].x);
-  rayA.setAttribute("y2", corners[2].y);
-
-  rayB.setAttribute("x1", xOrigin);
-  rayB.setAttribute("y1", cavEndY);
-  rayB.setAttribute("x2", corners[1].x);
-  rayB.setAttribute("y2", corners[1].y);
-
-  //--- Box Perspective ---
-  const fLeft = parseFloat(foreshortLeftBox.textContent) || 0;
-  const fRight = parseFloat(foreshortRightBox.textContent) || 0;
+    //--- Box Perspective ---
+   
+  <!-- const fLeft = parseFloat(foreshortLeftBox.textContent) || 0; -->
+  <!-- const fRight = parseFloat(foreshortRightBox.textContent) || 0; -->
+  const rayLL = Math.atan((spDist + l * Math.sin(tLrad)) / (l * Math.cos(tLrad)));
+  const rayRR = Math.atan((spDist + w * Math.sin(tRrad)) / (w * Math.cos(tRrad)));
+  const fLeft=(spDist + offset) / Math.tan(rayLL);
+  const fRight=(spDist + offset) / Math.tan(rayRR);
   
   const angleLeft = Math.atan(1.8 / vpLeftDist);
   const run = fLeft * scale;
@@ -708,43 +794,17 @@ function updateDiagram(event) {
 	rightGuide.setAttribute("x2", x2r);  // same x
 	rightGuide.setAttribute("y2", ppY);  // up to PP
 	
-	
-	
-	
 	// Draw dimensions
 	document.querySelectorAll("#planSvg .dimension").forEach(el => el.remove());
 
 	const yVP  = hlY;
-	
-	// Left VP → Origin
-	drawDim(
-	  planSvg,
-	  hlX1, yVP,       // left VP
-	  xOrigin, yVP,    // origin
-	  150,              // extension
-	  -20,             // offset
-	  vpLeftDist.toFixed(3) + " m",
-	  10                // textGap
-	);
-
-	// Origin → Right VP
-	drawDim(
-	  planSvg,
-	  xOrigin, yVP,    // origin
-	  hlX2, yVP,       // right VP
-	  150,
-	  -20,
-	  vpRightDist.toFixed(3) + " m",
-	  -25
-	);
-	
 	
 	// --- Vertical dimension from SP to Origin ---
 	drawDim(
 	  planSvg,
 	  xOrigin, cavEndY,  // SP
 	  xOrigin, yOrigin,  // Origin
-	  -120,                // extension length
+	  -2.5*scale,                // extension length
 	  -20,                // offset to the left
 	  spDist.toFixed(1) + " m", // text
 	  0                 // textGap
@@ -774,6 +834,167 @@ function updateDiagram(event) {
 	  true                                       // vertical flag (if your drawDim supports vertical)
 	);
 
+	// Shading
+	const p = $("leftFaceFill");
+	const pr = $("rightFaceFill");
+
+	// left vertical edge
+	const lx1 = parseFloat(leftVerticalEdge.getAttribute("x1"));
+	const ly1 = parseFloat(leftVerticalEdge.getAttribute("y2"));
+	const lx2 = parseFloat(leftVerticalEdge.getAttribute("x2"));
+	const ly2 = parseFloat(leftVerticalEdge.getAttribute("y1"));
+
+	// height reference line
+	const hx1 = parseFloat(heightRefLine.getAttribute("x1"));
+	const hy1 = parseFloat(heightRefLine.getAttribute("y1"));
+	const hx2 = parseFloat(heightRefLine.getAttribute("x2"));
+	const hy2 = parseFloat(heightRefLine.getAttribute("y2"));
+
+	// polygon order (clockwise, no crossing)
+	p.setAttribute(
+	  "points",
+	  `${lx1},${ly1} ${hx1},${hy1} ${hx2},${hy2} ${lx2},${ly2}`
+	);
+	// right vertical edge (down → up)
+	const rx1 = parseFloat(rightVerticalEdge.getAttribute("x1"));
+	const ry1 = parseFloat(rightVerticalEdge.getAttribute("y1"));
+	const rx2 = parseFloat(rightVerticalEdge.getAttribute("x2"));
+	const ry2 = parseFloat(rightVerticalEdge.getAttribute("y2"));
+
+	// Correct clockwise order (no crossing)
+	pr.setAttribute(
+	  "points",
+	  `${hx1},${hy1} ${rx2},${ry2} ${rx1},${ry1} ${hx2},${hy2}`
+	);
+
+	
+	const px = -Math.sin(tRrad) * aL;
+	const py =  Math.cos(tRrad) * aL;
+
+	const mx = xOrigin + px * scale;
+	const my = yOrigin - py * scale;
+
+	actualLeftMarker.setAttribute("cx", mx);
+	actualLeftMarker.setAttribute("cy", my);
+	drawDim(planSvg,  mx, my, xOrigin, yOrigin, 80, -15, aL.toFixed(2));
+
+	// --- Actual Right Marker ---
+	const pxR =  Math.cos(tRrad) * aR;  // positive sine for right side
+	const pyR =  Math.sin(tRrad) * aR;
+
+	const mxR = xOrigin + pxR * scale;
+	const myR = yOrigin - pyR * scale;
+
+	actualRightMarker.setAttribute("cx", mxR);
+	actualRightMarker.setAttribute("cy", myR);
+
+	// --- Rays from SP ---
+  rayA.setAttribute("x1", xOrigin);
+  rayA.setAttribute("y1", cavEndY);
+  rayA.setAttribute("x2", corners[2].x);
+  rayA.setAttribute("y2", corners[2].y);
+
+  rayB.setAttribute("x1", xOrigin);
+  rayB.setAttribute("y1", cavEndY);
+  rayB.setAttribute("x2", corners[1].x);
+  rayB.setAttribute("y2", corners[1].y);
+  
+  // Ray C: SP → actualLeftMarker
+	rayC.setAttribute("x1", xOrigin);
+	rayC.setAttribute("y1", cavEndY);
+	rayC.setAttribute("x2", actualLeftMarker.getAttribute("cx"));
+	rayC.setAttribute("y2", actualLeftMarker.getAttribute("cy"));
+
+	// Ray D: SP → actualRightMarker
+	rayD.setAttribute("x1", xOrigin);
+	rayD.setAttribute("y1", cavEndY);
+	rayD.setAttribute("x2", actualRightMarker.getAttribute("cx"));
+	rayD.setAttribute("y2", actualRightMarker.getAttribute("cy"));
+	
+	// Draw dimension from Origin to Actual Right Marker
+	drawDim(planSvg,xOrigin, yOrigin, mxR, myR,80,-15,aR.toFixed(2));
+
+	//foreshortend Vertical lines
+	const fsLeftVertical  = $("fsLeftVertical");
+	const fsRightVertical = $("fsRightVertical");
+	
+	// Left foreshortened vertical (projection to PP)
+	
+	const fActualLeft = parseFloat(foreshortLeftBox.textContent) || 0; 
+	const fActualRight = parseFloat(foreshortRightBox.textContent) || 0;
+	
+	//rise/run left 
+	const runActualLeft = fActualLeft * scale;
+	const riseActualLeftTop = runActualLeft * Math.tan(angleLeftTop);
+	const riseActualLeftBot = runActualLeft * Math.tan(angleLeft);
+	
+	//rise/run right
+	const runActualRight = fActualRight * scale;
+	const riseActualRightTop = runActualRight * Math.tan(angleRightTop);
+	const riseActualRightBot = runActualRight * Math.tan(angleRightLower);
+	
+	//points
+	const x1actLeft = hx1 - runActualLeft;
+	const y1actLeft = hy1 + riseActualLeftTop;
+	const x2actLeft=  hx2 - runActualLeft;
+	const y2actLeft = hy2 - riseActualLeftBot;
+	
+	const x1actRight = hx1 + runActualRight;
+	const y1actRight = hy1 + riseActualRightTop;
+	const x2actRight=  hx2 - runActualRight;
+	const y2actRight = hy2 - riseActualRightBot;
+	
+	
+	//left forshortened line
+	fsLeftVertical.setAttribute("x1", x1actLeft);
+	fsLeftVertical.setAttribute("y1", y1actLeft);
+	fsLeftVertical.setAttribute("x2", x2actLeft);
+	fsLeftVertical.setAttribute("y2", y2actLeft);
+
+	//right forshortened line
+	fsRightVertical.setAttribute("x1", x1actRight);
+	fsRightVertical.setAttribute("y1", y1actRight);
+	fsRightVertical.setAttribute("x2", x1actRight);
+	fsRightVertical.setAttribute("y2", y2actRight);
+
+	//linear dimensions for the foreshortened vertical lines
+	drawLinearDim(planSvg, x2actLeft, y2actLeft, hx2, hy2, "horizontal", 2*scale, fActualLeft.toFixed(3));
+	drawLinearDim(planSvg, hx2, hy2, x1actRight, y2actRight, "horizontal", 2*scale, fActualRight.toFixed(3));
+	
+	// Vanishing Points dimensions
+	drawDim(
+	  planSvg,
+	  hlX1, yVP,       // left VP
+	  xOrigin, yVP,    // origin
+	  5*scale,              // extension
+	  -20,             // offset
+	  vpLeftDist.toFixed(3) + " m",
+	  10                // textGap
+	);
+
+	// Origin → Right VP
+	drawDim(
+	  planSvg,
+	  xOrigin, yVP,    // origin
+	  hlX2, yVP,       // right VP
+	  5*scale,
+	  -20,
+	  vpRightDist.toFixed(3) + " m",
+	  -25
+	);
+	
+	// Left forshortened guide line to PP)
+	leftFSGuideLine.setAttribute("x1", x1actLeft);   // bottom of left vertical edge
+	leftFSGuideLine.setAttribute("y1", y1actLeft);
+	leftFSGuideLine.setAttribute("x2", x1actLeft);   // same x
+	leftFSGuideLine.setAttribute("y2", ppY);  // up to PP
+
+	// Right guide line (from bottom of right vertical edge to PP)
+	rightFSGuideLine.setAttribute("x1", x1actRight);  // bottom of right vertical edge
+	rightFSGuideLine.setAttribute("y1", y1actRight);
+	rightFSGuideLine.setAttribute("x2", x1actRight);  // same x
+	rightFSGuideLine.setAttribute("y2", ppY);  // up to PP
+
 
   console.log("VP Left:", vpLeftDist, "VP Right:", vpRightDist);
 }
@@ -795,11 +1016,10 @@ document.querySelectorAll("input").forEach(input => {
 ].forEach(el => el.addEventListener("input", updateDiagram));
 
 // Mirror building dimensions to actual inputs (but allow manual edits)
-lengthInput.addEventListener("input", () => { actualLeftInput.value = lengthInput.value; updateDiagram(); });
-widthInput.addEventListener("input", () => { actualRightInput.value = widthInput.value; updateDiagram(); });
+lengthInput.addEventListener("input", () => { actualLeftInput.value = lengthInput.value/2; updateDiagram(); });
+widthInput.addEventListener("input", () => { actualRightInput.value = widthInput.value/2; updateDiagram(); });
 
     updateDiagram();
 </script>
 </body>
 </html>
-
