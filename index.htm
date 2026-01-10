@@ -31,7 +31,7 @@
     <div class="flexRow">
       <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Width</label><input id="widthVal" type="number" step="1" value="8.0"></div>
       <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Length</label><input id="lengthVal" type="number" step="1" value="5.0"></div>
-      <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Height</label><input id="heightVal" type="number" step="1" value="7.5"></div>
+      <div style="display:flex; align-items:center; gap:8px;"><label style="white-space:nowrap; font-size:16px;">Height</label><input id="heightVal" type="number" step="1" value="6.0"></div>
     </div>
   </div>
 
@@ -69,14 +69,14 @@
   <div style="display:flex; flex-direction:column; gap:8px;">
     <div style="display:flex; align-items:center; gap:20px;">
       <label>SP Distance</label>
-      <input id="spDist" type="number" step="0.5" value="12.0" style="width:150px; padding:6px; background:#013220; color:#fff; border:1px solid #444; font-size:16px; font-weight:bold;">
+      <input id="spDist" type="number" step="0.5" value="8.0" style="width:150px; padding:6px; background:#013220; color:#fff; border:1px solid #444; font-size:16px; font-weight:bold;">
       <span style="font-family:monospace; color:#555; font-size:14px;">Enter desired Station Point (SP) distance from the Picture Plane (PP)</span>
     </div>
 
     <div style="margin-top:6px; font-family:monospace; font-size:14px; display:flex; flex-direction:column; gap:4px;">
       <div>
         <span style="color:#555;">SP Multiplier:</span>
-        <span id="spMult" style="padding-left: 48px; color:#fff;">1.273</span>
+        <span id="spMult" style="padding-left: 48px; color:#888;">1.273</span>
       </div>
       <div>
         <span style="color:#555;">Field of View (FOV):</span>
@@ -549,6 +549,12 @@ function updateDiagram() {
   // FOV
   const fovRad = 2 * Math.atan(Math.max(pw, ph) / (2 * spDist));
   fovValBox.textContent = (fovRad * 180 / Math.PI).toFixed(2);
+  
+  if (fovValBox.textContent < 50 || fovValBox.textContent > 60) {
+		fovValBox.style.color = "#ff4d4d"; // red
+	} else {
+		fovValBox.style.color = "#ADFF2F"; // good (green)
+	}
 
   // --- Vanishing point distances ---
   const vpLeftDist = parseFloat(vpLeftBox.textContent) || 0;
@@ -899,17 +905,7 @@ function updateDiagram() {
   rayB.setAttribute("x2", corners[1].x);
   rayB.setAttribute("y2", corners[1].y);
   
-  // Ray C: SP → actualLeftMarker
-	rayC.setAttribute("x1", xOrigin);
-	rayC.setAttribute("y1", cavEndY);
-	rayC.setAttribute("x2", actualLeftMarker.getAttribute("cx"));
-	rayC.setAttribute("y2", actualLeftMarker.getAttribute("cy"));
-
-	// Ray D: SP → actualRightMarker
-	rayD.setAttribute("x1", xOrigin);
-	rayD.setAttribute("y1", cavEndY);
-	rayD.setAttribute("x2", actualRightMarker.getAttribute("cx"));
-	rayD.setAttribute("y2", actualRightMarker.getAttribute("cy"));
+  
 	
 	// Draw dimension from Origin to Actual Right Marker
 	drawDim(planSvg,xOrigin, yOrigin, mxR, myR,80,-15,aR.toFixed(2));
@@ -995,6 +991,18 @@ function updateDiagram() {
 	rightFSGuideLine.setAttribute("x2", x1actRight);  // same x
 	rightFSGuideLine.setAttribute("y2", ppY);  // up to PP
 
+	// Ray C: SP → actualLeftMarker
+	rayC.setAttribute("x1", x1actLeft);
+	rayC.setAttribute("y1", ppY);
+	rayC.setAttribute("x2", actualLeftMarker.getAttribute("cx"));
+	rayC.setAttribute("y2", actualLeftMarker.getAttribute("cy"));
+
+	// Ray D: SP → actualRightMarker
+	rayD.setAttribute("x1", x1actRight);
+	rayD.setAttribute("y1", ppY);
+	rayD.setAttribute("x2", actualRightMarker.getAttribute("cx"));
+	rayD.setAttribute("y2", actualRightMarker.getAttribute("cy"));
+
 
   console.log("VP Left:", vpLeftDist, "VP Right:", vpRightDist);
 }
@@ -1023,4 +1031,3 @@ widthInput.addEventListener("input", () => { actualRightInput.value = widthInput
 </script>
 </body>
 </html>
-
